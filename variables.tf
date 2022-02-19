@@ -32,10 +32,6 @@ variable "webhook" {
 variable "events" {
   type = list(any)
 }
-variable "secret_key" {
-  type      = string
-  sensitive = true
-}
 
 # workspace
 variable "new_workspace" {
@@ -146,7 +142,7 @@ variable "pipeline_always_from_scratch" {
   description = "Defines whether or not to upload everything from scratch on every run."
 }
 variable "pipeline_auto_clear_cache" {
-  type        = "bool"
+  type        = bool
   description = "Defines whether or not to automatically clear cache before running the pipeline."
 }
 variable "pipeline_cron" {
@@ -166,7 +162,7 @@ variable "pipeline_event" {
   description = "The pipeline's list of events. Set it if on: EVENT"
 }
 variable "pipeline_execution_msg_template" {
-  type        = bool
+  type        = string
   description = "The pipeline's run title."
   default     = "$BUDDY_EXECUTION_REVISION_SUBJECT"
 }
