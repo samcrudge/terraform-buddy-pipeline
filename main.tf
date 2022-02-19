@@ -2,7 +2,7 @@ resource "buddy_pipeline" "test" {
   count = var.pipeline ? 1 : 0
 
   domain                        = var.domain
-  project_name                  = data.buddy_project.display_name
+  project_name                  = data.buddy_project.project.display_name
   name                          = var.pipe_name
   on                            = var.pipeline_react
   refs                          = var.pipeline_react == "CLICK" ? var.pipeline_ref : null

@@ -22,7 +22,7 @@ resource "buddy_integration" "aws" {
   # Provide for: AZURE_CLOUD, UPCLOUD, DOCKER_HUB
   password = var.integration_password
   # Provide along with scopes: PROJECT, ADMIN_IN_PROJECT, GROUP_IN_PROJECT
-  project_name = data.buddy_project.display_name
+  project_name = data.buddy_project.project.display_name
   # Provide for: AMAZON
   role_assumption = var.role_assumption
   # Provide for: SHOPIFY
