@@ -220,3 +220,13 @@ variable "integration" {
 variable "project_required" {
   type = bool
 }
+
+variable "base_url" {
+  type    = string
+  default = "CHANGEME"
+}
+
+variable "insecure" {
+  type    = bool
+  default = false
+}
