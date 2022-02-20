@@ -5,7 +5,7 @@ resource "buddy_pipeline" "test" {
   project_name                = data.buddy_project.by_display_name.display_name
   name                        = var.pipeline_name
   on                          = var.pipeline_react
-  refs                        = [""]
+  refs                        = var.pipeline_ref
   always_from_scratch         = var.pipeline_always_from_scratch
   auto_clear_cache            = var.pipeline_auto_clear_cache
   cron                        = var.pipeline_start_date != null && var.pipeline_delay != null ? null : var.pipeline_cron

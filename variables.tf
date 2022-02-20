@@ -206,7 +206,7 @@ variable "pipeline_priority" {
   description = "The pipeline's priority. Allowed: LOW, NORMAL, HIGH."
 }
 variable "pipeline_ref" {
-  type        = string
+  type        = list(string)
   description = "The pipeline's list of refs. Set it if on: CLICK."
 }
 variable "pipeline_start_date" {
