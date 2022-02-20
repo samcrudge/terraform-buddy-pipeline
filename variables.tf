@@ -4,7 +4,8 @@ variable "buddy_token" {
 
 # Buddy Variable
 variable "domain" {
-  type = string
+  type    = string
+  default = "CHANGEME"
 }
 variable "budvar_key" {
   type = string
@@ -31,6 +32,12 @@ variable "webhook" {
 }
 variable "events" {
   type = list(any)
+  default = [
+    {
+      refs = ["CHANGEME"]
+      type = "CHANGEME"
+    }
+  ]
 }
 
 # workspace
@@ -108,7 +115,7 @@ variable "integration_password" {
   sensitive = true
 }
 variable "role_assumption" {
-  type = list(any)
+  type = number
 }
 variable "integration_shop" {
   type = string
@@ -132,6 +139,7 @@ variable "pipeline_name" {
 variable "pipeline_react" {
   type        = string
   description = "The pipeline's trigger mode. Allowed: CLICK, EVENT, SCHEDULE"
+  default     = "EVENT"
 }
 variable "pipeline_project_name" {
   type        = string
@@ -158,8 +166,13 @@ variable "pipeline_commit_status" {
   description = "Defines whether or not to omit sending commit statuses to GitHub or GitLab upon execution."
 }
 variable "pipeline_event" {
-  type        = list(any)
   description = "The pipeline's list of events. Set it if on: EVENT"
+  default = [
+    {
+      type = ""
+      ref  = ["changeme"]
+    }
+  ]
 }
 variable "pipeline_execution_msg_template" {
   type        = string
@@ -204,10 +217,14 @@ variable "pipeline_target_url" {
   type        = string
   description = "The pipeline's website target URL."
 }
-variable "pipeline_trigger_condition" {
-  type        = list(any)
-  description = "The pipeline's list of trigger conditions. Required: condition (String)"
-}
+#  TODO: Fix this variable
+# variable "pipeline_trigger_condition" {
+#   type        = any
+#   description = "The pipeline's list of trigger conditions. Required: condition (String)"
+#   default = [{
+#     "trigger_condition" = "CHANGEME"
+#   }]
+# }
 variable "pipeline_worker" {
   type        = string
   description = "The pipeline's worker name. ONLY for Buddy Enterprise."
@@ -229,4 +246,17 @@ variable "base_url" {
 variable "insecure" {
   type    = bool
   default = false
+}
+
+variable "buddy_secret_req" {
+  type    = bool
+  default = false
+}
+
+variable "cron" {
+  type = string
+}
+
+variable "pipeline" {
+  type = bool
 }

@@ -20,7 +20,7 @@ resource "buddy_project" "project" {
   # The project's external project ID. Needed when cloning from GitHub, GitLab or BitBucket
   external_project_id = var.external_project_id
   # The project's GitLab project ID. Needed when cloning from a GitLab
-  git_lab_project_id = VAR.git_lab_project_id
+  git_lab_project_id = var.git_lab_project_id
   # The project's integration ID. Needed when cloning from a GitHub, GitLab or BitBucket
   integration_id = var.integration_id
 }

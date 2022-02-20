@@ -22,9 +22,11 @@ resource "buddy_integration" "aws" {
   # Provide for: AZURE_CLOUD, UPCLOUD, DOCKER_HUB
   password = var.integration_password
   # Provide along with scopes: PROJECT, ADMIN_IN_PROJECT, GROUP_IN_PROJECT
-  project_name = data.buddy_project.project.display_name
+  project_name = data.buddy_project.by_display_name.display_name
   # Provide for: AMAZON
-  role_assumption = var.role_assumption
+  # ! Not Working
+  # * Did you mean to define a block of type "role_assumption"?
+  # role_assumption = var.role_assumption
   # Provide for: SHOPIFY
   shop = var.integration_shop
   # Provide for: AZURE_CLOUD
