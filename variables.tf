@@ -165,14 +165,11 @@ variable "pipeline_commit_status" {
   type        = bool
   description = "Defines whether or not to omit sending commit statuses to GitHub or GitLab upon execution."
 }
-variable "pipeline_event" {
-  description = "The pipeline's list of events. Set it if on: EVENT"
-  default = [
-    {
-      type = ""
-      ref  = ["changeme"]
-    }
-  ]
+variable "event_refs" {
+  type = list(string)
+}
+variable "event_type" {
+  type = string
 }
 variable "pipeline_execution_msg_template" {
   type        = string
@@ -217,14 +214,25 @@ variable "pipeline_target_url" {
   type        = string
   description = "The pipeline's website target URL."
 }
-#  TODO: Fix this variable
-# variable "pipeline_trigger_condition" {
-#   type        = any
-#   description = "The pipeline's list of trigger conditions. Required: condition (String)"
-#   default = [{
-#     "trigger_condition" = "CHANGEME"
-#   }]
-# }
+variable "trig_condition" {
+  type = string
+}
+variable "trig_set_hours" {
+}
+variable "trig_set_days" {
+}
+variable "trig_zone_id" {
+}
+variable "trig_var_key" {
+}
+variable "trig_var_value" {
+}
+variable "trig_path" {
+}
+variable "trig_project_name" {
+}
+variable "trig_pipeline_name" {
+}
 variable "pipeline_worker" {
   type        = string
   description = "The pipeline's worker name. ONLY for Buddy Enterprise."
@@ -260,3 +268,4 @@ variable "cron" {
 variable "pipeline" {
   type = bool
 }
+
