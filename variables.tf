@@ -1,7 +1,6 @@
 variable "buddy_token" {
   type = string
 }
-
 # Buddy Variable
 variable "domain" {
   type    = string
@@ -218,20 +217,29 @@ variable "trig_condition" {
   type = string
 }
 variable "trig_set_hours" {
+  type = list(number)
 }
 variable "trig_set_days" {
+  type = list(number)
 }
 variable "trig_zone_id" {
+  type = string
 }
 variable "trig_var_key" {
+  type = string
 }
 variable "trig_var_value" {
+  type = string
+  sensitive = true
 }
 variable "trig_path" {
+  type = list(string)
 }
 variable "trig_project_name" {
+  type = string
 }
 variable "trig_pipeline_name" {
+  type = string
 }
 variable "pipeline_worker" {
   type        = string
