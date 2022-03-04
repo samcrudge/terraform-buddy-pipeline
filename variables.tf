@@ -229,7 +229,7 @@ variable "trig_var_key" {
   type = string
 }
 variable "trig_var_value" {
-  type = string
+  type      = string
   sensitive = true
 }
 variable "trig_path" {
