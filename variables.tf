@@ -233,7 +233,7 @@ variable "trig_var_value" {
   sensitive = true
 }
 variable "trig_path" {
-  type    = list(string)
+  type    = string
   default = ""
 }
 variable "trig_project_name" {
